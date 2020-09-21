@@ -13,8 +13,60 @@
     2. the ability to check off tasks - strikes them out wo removing (add a checkbox)
     3. the ability to delete a task
     4. the ability to edit an existing task
-
+    
     */
+
+    
+    $(document).ready(function () {
+    $('#add-button').on('click', function(e) {
+      $('todo-list').val(" ")
+      e.preventDefault()
+      let $save = $('<li>', { 
+        "text":`${$('#description').val()}`
+
+      })
+      $('#todo-list').append($save)
+      let $newButton = $('<button>', {
+      'class': 'delete',
+      'text': 'x'
+      
+    })
+
+    let $edit = $('<button>', {
+      'class': "delete",
+      "text": "edit"
+    })
+    
+    let $checkbox = $('<input>', {
+      'type': 'checkbox'
+    })
+    $checkbox.on('click', function(e) {
+      $(this).parent().wrap('<strike>')
+      $(this).parent().change();
+      prompt("Change Task?")
+      
+    })
+    $newButton.on('click', function() {
+      $(this).parent().remove();
+
+    })
+    $edit.on('click', function(e) {
+      event.preventDefault();
+      let editThis = document.getElementById('description"')
+    })
+
+
+    $save.append($newButton)
+    $save.append($checkbox)
+    $save.append($edit)
+  
+    })
+    })
+
+  
+
+
+
     </script>
     <style>
     #wrapper {
